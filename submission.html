@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Enquiry - PAM Practice Bureau</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pam: {
+                            orange: '#F7941D',
+                            black: '#231F20',
+                            gray: '#F5F5F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .form-radio:checked {
+                background-color: #F7941D;
+                border-color: #F7941D;
+            }
+            .form-input {
+                @apply w-full py-3 px-4 bg-gray-50 border border-gray-200 text-gray-900 rounded-sm focus:outline-none focus:border-pam-orange focus:ring-1 focus:ring-pam-orange transition-all text-sm;
+            }
+            .form-label {
+                @apply block text-sm font-medium text-gray-700 mb-2;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 font-sans min-h-screen flex flex-col items-center">
+
+    <!-- Main Container -->
+    <main class="w-full max-w-[800px] px-6 py-10 md:py-16 space-y-10">
+
+        <!-- Header -->
+        <header class="border-b border-gray-100 pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <h1 class="text-3xl font-medium tracking-tight text-gray-900">
+                    <a href="index.html" class="hover:text-pam-orange transition-colors">PAM Practice Bureau</a>
+                </h1>
+                <p class="text-sm text-gray-500 mt-2">Submit an Enquiry</p>
+            </div>
+            <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-pam-orange transition-colors">
+                ← Back to Home
+            </a>
+        </header>
+
+        <!-- Form Section -->
+        <section class="bg-white">
+            <form action="#" method="POST" class="space-y-8" id="enquiryForm"
+                onsubmit="event.preventDefault(); alert('Thank you. Your enquiry has been simulated.');">
+
+                <!-- 1. Enquiry Type -->
+                <div class="space-y-4">
+                    <label class="form-label text-base">Type of Enquiry</label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <label
+                            class="cursor-pointer border border-gray-200 p-4 rounded-sm hover:border-pam-orange transition-colors has-[:checked]:border-pam-orange has-[:checked]:bg-orange-50/30">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="type" value="member" class="accent-pam-orange w-4 h-4"
+                                    onchange="toggleFields()">
+                                <span class="text-sm font-medium">PAM Member</span>
+                            </div>
+                        </label>
+                        <label
+                            class="cursor-pointer border border-gray-200 p-4 rounded-sm hover:border-pam-orange transition-colors has-[:checked]:border-pam-orange has-[:checked]:bg-orange-50/30">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="type" value="public" class="accent-pam-orange w-4 h-4"
+                                    onchange="toggleFields()">
+                                <span class="text-sm font-medium">Public / Non-Member</span>
+                            </div>
+                        </label>
+                        <label
+                            class="cursor-pointer border border-gray-200 p-4 rounded-sm hover:border-pam-orange transition-colors has-[:checked]:border-pam-orange has-[:checked]:bg-orange-50/30">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="type" value="report" class="accent-pam-orange w-4 h-4"
+                                    onchange="toggleFields()">
+                                <span class="text-sm font-medium">Practice Report</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 2. Personal Details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input">
+                    </div>
+
+                    <!-- Conditional Member Field -->
+                    <div id="memberField" class="hidden">
+                        <label for="memberId" class="form-label">PAM Membership No.</label>
+                        <input type="text" id="memberId" name="memberId" class="form-input" placeholder="e.g. A1234">
+                    </div>
+                </div>
+
+                <!-- Conditional Report Fields -->
+                <div id="reportFields" class="hidden space-y-4 pt-4">
+                    <h3 class="text-sm font-medium text-gray-900 border-l-2 border-pam-orange pl-2">Practice Matter
+                        Details</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="issueCategory" class="form-label">Issue Category</label>
+                            <select id="issueCategory" name="issueCategory" class="form-input">
+                                <option value="">Select Category</option>
+                                <option value="pbt">Local Authority (PBT)</option>
+                                <option value="govt">Government Agency</option>
+                                <option value="developer">Developer</option>
+                                <option value="contractor">Contractor</option>
+                                <option value="consultant">Consultant</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="partyName" class="form-label">Name of Party Against</label>
+                            <input type="text" id="partyName" name="partyName" class="form-input"
+                                placeholder="e.g. Majlis Bandaraya...">
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-gray-100">
+
+                <!-- 3. Enquiry Details -->
+                <div class="space-y-6">
+                    <div>
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input"
+                            placeholder="Brief summary of your enquiry" required>
+                    </div>
+
+                    <div>
+                        <label for="message" class="form-label">Enquiry Details</label>
+                        <textarea id="message" name="message" rows="6" class="form-input"
+                            placeholder="Please provide specific details about your query..." required></textarea>
+                        <p class="text-xs text-gray-400 mt-2">Please do not include sensitive personal financial data
+                            unless necessary.</p>
+                    </div>
+
+                    <div>
+                        <label class="form-label block">Attachments (Optional)</label>
+                        <div
+                            class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-sm hover:border-pam-orange transition-colors bg-gray-50">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none"
+                                    viewBox="0 0 48 48" aria-hidden="true">
+                                    <path
+                                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="file-upload"
+                                        class="relative cursor-pointer bg-white rounded-md font-medium text-pam-orange hover:text-orange-600 focus-within:outline-none">
+                                        <span>Upload a file</span>
+                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">
+                                    PDF, JPG, PNG up to 10MB
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4">
+                    <button type="submit"
+                        class="w-full md:w-auto px-8 py-3 bg-gray-900 text-white font-medium rounded-sm hover:bg-pam-orange transition-colors duration-300">
+                        Submit Enquiry
+                    </button>
+                    <p class="text-[10px] text-gray-400 mt-4 text-center md:text-left">
+                        By submitting this form, you acknowledge that responses provided by the PAM Practice Bureau are
+                        for general guidance only and do not constitute legal advice.
+                    </p>
+                </div>
+
+            </form>
+        </section>
+
+
+        <!-- Footer -->
+        <footer
+            class="text-center pt-20 pb-16 space-y-8 w-full bg-pam-black text-white mt-24 border-t-8 border-pam-orange">
+            <div class="flex flex-col items-center space-y-4">
+                <img src="images/pam_logo.png" alt="PAM Logo"
+                    class="w-16 h-16 bg-white rounded-full p-2 mb-2 object-contain">
+                <h3 class="text-lg font-bold text-white tracking-wide">Pertubuhan Akitek Malaysia</h3>
+                <div class="text-sm text-gray-400 space-y-1 font-light">
+                    <p>99L, Jalan Tandok, Bangsar, 59100 Kuala Lumpur, Malaysia</p>
+                    <p>Phone: +603-2202 2866 | Email: info@pam.org.my</p>
+                </div>
+            </div>
+            <div class="space-y-2 max-w-2xl mx-auto px-6">
+                <p class="text-[11px] text-gray-500">The Practice Bureau is not a statutory authority. Certain matters
+                    fall under LAM or relevant authorities.</p>
+                <p class="text-[11px] text-gray-500">Content does not replace professional or legal advice.</p>
+            </div>
+            <div class="pt-6 border-t border-gray-800 w-1/2 mx-auto">
+                <span class="text-gray-600 font-bold tracking-widest text-xs uppercase">© 2026 PAM Practice
+                    Bureau</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Handle Query Params and Logic
+        function toggleFields() {
+            const type = document.querySelector('input[name="type"]:checked')?.value;
+            const memberField = document.getElementById('memberField');
+            const reportFields = document.getElementById('reportFields');
+
+            // Handling Member ID (Required for Member & Report)
+            if (type === 'member' || type === 'report') {
+                memberField.classList.remove('hidden');
+                document.getElementById('memberId').required = true;
+            } else {
+                memberField.classList.add('hidden');
+                document.getElementById('memberId').required = false;
+            }
+
+            // Handling Report Specific Fields
+            if (type === 'report') {
+                reportFields.classList.remove('hidden');
+                document.getElementById('issueCategory').required = true;
+                document.getElementById('partyName').required = true;
+            } else {
+                reportFields.classList.add('hidden');
+                document.getElementById('issueCategory').required = false;
+                document.getElementById('partyName').required = false;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const typeParam = urlParams.get('type');
+
+            if (typeParam) {
+                const radio = document.querySelector(`input[name="type"][value="${typeParam}"]`);
+                if (radio) {
+                    radio.checked = true;
+                }
+            } else {
+                // Default to public if none specified
+                const radio = document.querySelector(`input[name="type"][value="public"]`);
+                if (radio) radio.checked = true;
+            }
+            toggleFields();
+        });
+    </script>
+</body>
+
+</html>

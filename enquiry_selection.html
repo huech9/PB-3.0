@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Enquiry Type - PAM Practice Bureau</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pam: {
+                            orange: '#F7941D',
+                            black: '#231F20',
+                            gray: '#F5F5F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col items-center">
+
+    <!-- Main Container -->
+    <main class="w-full max-w-[1024px] px-6 py-10 md:py-16 space-y-10">
+
+        <!-- Header -->
+        <header class="border-b border-gray-200 pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <h1 class="text-3xl font-medium tracking-tight text-gray-900">
+                    <a href="index.html" class="hover:text-pam-orange transition-colors">PAM Practice Bureau</a>
+                </h1>
+                <p class="text-lg text-gray-600 mt-2 font-light">Select Enquiry Type</p>
+            </div>
+            <a href="index.html"
+                class="text-sm font-medium text-gray-400 hover:text-pam-orange transition-colors flex items-center gap-2">
+                ← Back to Home
+            </a>
+        </header>
+
+        <!-- Selection Cards (Moved from index.html) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1: Member -->
+            <div
+                class="border border-black p-8 hover:bg-pam-orange hover:border-pam-orange transition-all duration-300 flex flex-col justify-between h-full bg-white rounded-sm shadow-sm hover:shadow-md group">
+                <div class="space-y-4 mb-8">
+                    <h3
+                        class="text-lg font-medium text-gray-900 border-l-4 border-pam-orange pl-4 group-hover:text-white group-hover:border-white">
+                        Enquiry by PAM
+                        Member</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed group-hover:text-white">
+                        Practice-related enquiries submitted by PAM members.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <a href="submission.html?type=member"
+                        class="block w-full py-3 px-4 bg-gray-50 hover:bg-pam-black hover:text-white text-gray-900 text-sm font-medium transition-colors duration-200 text-left flex justify-between items-center group rounded-sm">
+                        Submit Member Enquiry
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </a>
+                    <p class="text-[10px] text-gray-400 text-center italic">Subject to PAM Practice Bureau review</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Public -->
+            <div
+                class="border border-black p-8 hover:bg-pam-orange hover:border-pam-orange transition-all duration-300 flex flex-col justify-between h-full bg-white rounded-sm shadow-sm hover:shadow-md group">
+                <div class="space-y-4 mb-8">
+                    <h3
+                        class="text-lg font-medium text-gray-900 border-l-4 border-pam-orange pl-4 group-hover:text-white group-hover:border-white">
+                        Enquiry by Public
+                    </h3>
+                    <p class="text-sm text-gray-500 leading-relaxed group-hover:text-white">
+                        General enquiries on architectural practice matters.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <a href="submission.html?type=public"
+                        class="block w-full py-3 px-4 bg-gray-50 hover:bg-pam-black hover:text-white text-gray-900 text-sm font-medium transition-colors duration-200 text-left flex justify-between items-center group rounded-sm">
+                        Submit Public Enquiry
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </a>
+                    <p class="text-[10px] text-gray-400 text-center italic">Subject to PAM Practice Bureau review</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Report -->
+            <div
+                class="border border-black p-8 hover:bg-pam-orange hover:border-pam-orange transition-all duration-300 flex flex-col justify-between h-full bg-white rounded-sm shadow-sm hover:shadow-md group">
+                <div class="space-y-4 mb-8">
+                    <h3
+                        class="text-lg font-medium text-gray-900 border-l-4 border-pam-orange pl-4 group-hover:text-white group-hover:border-white">
+                        Practice Matter
+                        Report</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed group-hover:text-white">
+                        Reporting of professional practice matters by PAM members.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <a href="submission.html?type=report"
+                        class="block w-full py-3 px-4 bg-gray-50 hover:bg-pam-black hover:text-white text-gray-900 text-sm font-medium transition-colors duration-200 text-left flex justify-between items-center group rounded-sm">
+                        Submit Report
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </a>
+                    <p class="text-[10px] text-gray-400 text-center italic">Subject to PAM Practice Bureau review</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer
+            class="text-center pt-20 pb-16 space-y-8 w-full bg-pam-black text-white mt-24 border-t-8 border-pam-orange">
+            <div class="flex flex-col items-center space-y-4">
+                <img src="images/pam_logo.png" alt="PAM Logo"
+                    class="w-16 h-16 bg-white rounded-full p-2 mb-2 object-contain">
+                <h3 class="text-lg font-bold text-white tracking-wide">Pertubuhan Akitek Malaysia</h3>
+                <div class="text-sm text-gray-400 space-y-1 font-light">
+                    <p>99L, Jalan Tandok, Bangsar, 59100 Kuala Lumpur, Malaysia</p>
+                    <p>Phone: +603-2202 2866 | Email: info@pam.org.my</p>
+                </div>
+            </div>
+            <div class="space-y-2 max-w-2xl mx-auto px-6">
+                <p class="text-[11px] text-gray-500">The Practice Bureau is not a statutory authority. Certain matters
+                    fall under LAM or relevant authorities.</p>
+                <p class="text-[11px] text-gray-500">Content does not replace professional or legal advice.</p>
+            </div>
+            <div class="pt-6 border-t border-gray-800 w-1/2 mx-auto">
+                <span class="text-gray-600 font-bold tracking-widest text-xs uppercase">© 2026 PAM Practice
+                    Bureau</span>
+            </div>
+        </footer>
+
+    </main>
+</body>
+
+</html>

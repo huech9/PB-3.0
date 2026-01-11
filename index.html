@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAM Practice Bureau</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pam: {
+                            orange: '#F7941D', // Approximated PAM standard orange
+                            black: '#231F20',
+                            gray: '#F5F5F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .btn-hover {
+                @apply transition-colors duration-200 ease-in-out;
+            }
+        }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 font-sans min-h-screen flex flex-col items-center">
+
+    <!-- Main Container -->
+    <main class="w-full max-w-[1024px] px-6 py-16 md:py-24 space-y-20">
+
+        <!-- 1. Header Section -->
+        <header class="text-center space-y-4">
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-4">
+                PAM Practice Bureau
+            </h1>
+            <div class="space-y-2">
+                <p class="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
+                    A professional reference and enquiry platform on architectural practice matters in Malaysia.
+                </p>
+                <p class="text-xs text-gray-400 uppercase tracking-widest pt-2">
+                    Responses provided are non-statutory and for general guidance only.
+                </p>
+            </div>
+        </header>
+
+        <!-- 2. Primary Action Shortcuts -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <!-- Shortcut 1 -->
+            <a href="enquiry_selection.html"
+                class="group block border border-black hover:bg-pam-orange hover:border-pam-orange p-6 text-center transition-all duration-300 rounded-sm bg-white shadow-sm hover:shadow-xl hover:-translate-y-1">
+                <span class="block text-sm font-bold text-black group-hover:text-white uppercase tracking-wider">Submit
+                    an
+                    Enquiry</span>
+            </a>
+            <!-- Shortcut 2 -->
+            <a href="past_qa_archive.html"
+                class="group block border border-black hover:bg-pam-orange hover:border-pam-orange p-6 text-center transition-all duration-300 rounded-sm bg-white shadow-sm hover:shadow-xl hover:-translate-y-1">
+                <span class="block text-sm font-bold text-black group-hover:text-white uppercase tracking-wider">Browse
+                    Previous
+                    Q&A</span>
+            </a>
+            <!-- Shortcut 3 -->
+            <a href="top10_faq.html"
+                class="group block border border-black hover:bg-pam-orange hover:border-pam-orange p-6 text-center transition-all duration-300 rounded-sm bg-white shadow-sm hover:shadow-xl hover:-translate-y-1">
+                <span class="block text-sm font-bold text-black group-hover:text-white uppercase tracking-wider">Top 10
+                    FAQs</span>
+            </a>
+            <!-- Shortcut 4 -->
+            <a href="practice_resources.html"
+                class="group block border border-black hover:bg-pam-orange hover:border-pam-orange p-6 text-center transition-all duration-300 rounded-sm bg-white shadow-sm hover:shadow-xl hover:-translate-y-1">
+                <span
+                    class="block text-sm font-bold text-black group-hover:text-white uppercase tracking-wider">Practice
+                    Resources</span>
+            </a>
+        </section>
+
+        <!-- 3. Submission Types Section (Moved to enquiry_selection.html) -->
+        <!-- Section Removed -->
+
+
+
+        <!-- 5. Search Entry Section -->
+        <section class="w-full max-w-2xl mx-auto pt-8">
+            <form action="past_qa_archive.html" method="GET" class="relative">
+                <input type="text" name="search" placeholder="Search previous practice enquiries by keyword or category"
+                    class="w-full py-5 px-8 bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-pam-orange focus:ring-1 focus:ring-pam-orange transition-all rounded-sm text-base shadow-sm">
+                <button type="submit"
+                    class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-pam-orange transition-colors">
+                    <!-- Simple Search Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </button>
+            </form>
+        </section>
+
+        <!-- 6. Footer / Disclaimer Section -->
+        <!-- 6. Footer / Disclaimer Section -->
+        <footer
+            class="text-center pt-24 pb-20 space-y-10 w-full bg-white text-gray-900 mt-32 border-t-8 border-pam-orange">
+            <div class="flex flex-col items-center space-y-6">
+                <img src="images/pam_logo.png" alt="PAM Logo" class="w-32 h-32 mb-4 object-contain mx-auto">
+                <h3 class="text-2xl font-bold text-gray-900 tracking-wide">Pertubuhan Akitek Malaysia</h3>
+                <div class="text-base text-gray-600 space-y-2 font-light">
+                    <p>99L, Jalan Tandok, Bangsar, 59100 Kuala Lumpur, Malaysia</p>
+                    <p>Phone: +603-2202 2866 | Email: info@pam.org.my</p>
+                </div>
+            </div>
+            <div class="space-y-3 max-w-3xl mx-auto px-6">
+                <p class="text-xs text-gray-500">The Practice Bureau is not a statutory authority. Certain matters fall
+                    under LAM or relevant authorities.</p>
+                <p class="text-xs text-gray-500">Content does not replace professional or legal advice.</p>
+            </div>
+            <div class="pt-8 border-t border-gray-100 w-1/2 mx-auto">
+                <span class="text-gray-400 font-bold tracking-widest text-xs uppercase">© 2026 PAM Practice
+                    Bureau</span>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
